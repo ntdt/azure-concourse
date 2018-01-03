@@ -166,7 +166,7 @@ function fn_exec_tf {
     -var "azure_droplets_container=${azure_droplets_container}" \
     -var "azure_packages_container=${azure_packages_container}" \
     -var "azure_resources_container=${azure_resources_container}" \
-    azure-concourse/terraform/$azure_pcf_terraform_template
+    .
 }
 pushd azure-concourse/terraform/$azure_pcf_terraform_template
   terraform init
