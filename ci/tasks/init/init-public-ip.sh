@@ -46,12 +46,13 @@ terraform ${1} \
   -var "ert_subnet_id=${ert_subnet}" \
   -var "azure_multi_resgroup_network=${azure_multi_resgroup_network}" \
   -var "azure_multi_resgroup_pcf=${azure_multi_resgroup_pcf}" \
-  azure-concourse/terraform/${azure_pcf_terraform_template}/init
-
+  .
 }
-terraform init
-fn_terraform "plan"
-fn_terraform "apply"
+
+pushd azure-concourse/terraform/${azure_pcf_terraform_template}/init
+  fn_terraform "plan"
+  #fn_terraform "apply"
+popd
 
 
 echo "=============================================================================================="
