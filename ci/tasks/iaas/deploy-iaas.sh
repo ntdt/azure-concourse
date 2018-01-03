@@ -168,6 +168,8 @@ function fn_exec_tf {
     -var "azure_resources_container=${azure_resources_container}" \
     azure-concourse/terraform/$azure_pcf_terraform_template
 }
-
-fn_exec_tf "plan"
-fn_exec_tf "apply"
+pushd azure-concourse/terraform/$azure_pcf_terraform_template
+  terraform init
+  fn_exec_tf "plan"
+  fn_exec_tf "apply -auto-approve"
+popd
