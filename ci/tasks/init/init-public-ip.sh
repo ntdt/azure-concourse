@@ -49,7 +49,7 @@ terraform ${1} \
   azure-concourse/terraform/${azure_pcf_terraform_template}/init
 
 }
-
+terraform init
 fn_terraform "plan"
 fn_terraform "apply"
 
