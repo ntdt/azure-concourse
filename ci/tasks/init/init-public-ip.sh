@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -ex
 
 echo "=============================================================================================="
 echo "Executing Terraform ...."
@@ -50,6 +50,7 @@ terraform ${1} \
 }
 
 pushd azure-concourse/terraform/${azure_pcf_terraform_template}/init
+  terraform init
   fn_terraform "plan"
   #fn_terraform "apply"
 popd
